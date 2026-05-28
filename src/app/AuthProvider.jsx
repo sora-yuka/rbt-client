@@ -4,7 +4,7 @@ import apiClient from "../services/apiClient";
 
 const AuthContext = createContext(null);
 
-export const AuthProvider = ({ childer }) => {
+export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -49,7 +49,7 @@ export const AuthProvider = ({ childer }) => {
 
   return (
     <AuthContext.Provider value={value}>
-      {!loading && childer}
+      {!loading && children}
     </AuthContext.Provider>
   );
 };

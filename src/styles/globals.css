@@ -1,4 +1,19 @@
-div {
-  background-color: var(--bg-dark);
-  color: var(--text-body);
+@import url("https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap");
+
+html,
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  font-family: "Onest", sans-serif;
+  color: var(--text);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--text-heading);
 }
