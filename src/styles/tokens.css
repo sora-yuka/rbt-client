@@ -7,6 +7,8 @@
   /* Text */
   --text-heading: hsl(0, 0%, 10%);
   --text: hsl(0, 0%, 30%);
+  --text-soft: hsl(0, 0%, 46%);
 
   --border: hsl(0, 0%, 20%);
+  --border-muted: hsl(0, 0%, 84%);
 }

@@ -1,0 +1,260 @@
+.page {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  padding: 32px;
+  background: var(--bg);
+}
+
+.modal {
+  width: min(732px, 100%);
+  overflow: hidden;
+  border: 1px solid var(--border-muted);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 26px 80px rgba(0, 0, 0, 0.08);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 78px;
+  padding: 0 30px;
+  border-bottom: 1px solid var(--border-muted);
+}
+
+.title {
+  color: var(--text-heading);
+  font-size: 21px;
+  font-weight: 850;
+}
+
+.close {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  color: var(--text-soft);
+}
+
+.close:hover {
+  background: var(--bg);
+  color: var(--text-heading);
+}
+
+.closeIcon {
+  display: block;
+  width: 24px;
+  height: 24px;
+  opacity: 0.72;
+}
+
+.body {
+  display: grid;
+  grid-template-columns: 270px 1fr;
+  gap: 38px;
+  padding: 48px 34px 46px;
+}
+
+.visual {
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  gap: 18px;
+  padding-right: 34px;
+  border-right: 1px solid var(--border-muted);
+  text-align: center;
+}
+
+.avatar {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  background: linear-gradient(var(--bg-dark), var(--bg));
+  overflow: visible;
+}
+
+.avatar::before {
+  content: "";
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 38px 0 12px white;
+}
+
+.avatarImage {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.avatar:has(.avatarImage)::before {
+  display: none;
+}
+
+.plus {
+  position: absolute;
+  top: 0;
+  right: -4px;
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border: 4px solid white;
+  border-radius: 50%;
+  background: var(--text-heading);
+  color: white;
+  font-size: 22px;
+  font-weight: 800;
+  z-index: 2;
+}
+
+.visualTitle {
+  color: var(--text-heading);
+  font-size: 24px;
+  font-weight: 850;
+}
+
+.visualText {
+  color: var(--text-soft);
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.imageButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50px;
+  padding: 0 28px;
+  border: 1px solid var(--border-muted);
+  border-radius: 999px;
+  background: var(--bg-surface);
+  color: var(--text-heading);
+  font-weight: 850;
+}
+
+.imageButton:hover {
+  border-color: var(--border);
+}
+
+.fileInput {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+}
+
+.form {
+  display: grid;
+  gap: 16px;
+  align-content: center;
+}
+
+.label {
+  display: grid;
+  gap: 10px;
+  color: var(--text-heading);
+  font-size: 14px;
+  font-weight: 850;
+}
+
+.labelText {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.hint {
+  display: inline-grid;
+  place-items: center;
+  width: 16px;
+  height: 16px;
+  margin-left: 4px;
+  border-radius: 50%;
+  background: var(--bg-dark);
+  color: var(--text-soft);
+  font-size: 11px;
+}
+
+.input {
+  width: 100%;
+  min-height: 50px;
+  border: 1px solid var(--border-muted);
+  border-radius: 999px;
+  background: white;
+  padding: 0 22px;
+  color: var(--text-heading);
+  font-weight: 650;
+}
+
+.input:focus {
+  border-color: var(--border);
+  box-shadow: 0 0 0 4px rgba(31, 31, 31, 0.07);
+}
+
+.submit {
+  min-height: 52px;
+  margin-top: 14px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #2b2b2b, #111);
+  color: white;
+  font-weight: 850;
+}
+
+.submit:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.switch {
+  justify-self: center;
+  color: var(--text-soft);
+  font-size: 14px;
+  font-weight: 750;
+}
+
+.switch strong {
+  color: var(--text-heading);
+}
+
+.error {
+  border: 1px solid rgba(160, 42, 42, 0.25);
+  border-radius: 12px;
+  padding: 12px 14px;
+  background: rgba(160, 42, 42, 0.08);
+  color: #8a2424;
+  line-height: 1.4;
+}
+
+@media (max-width: 760px) {
+  .page {
+    padding: 16px;
+  }
+
+  .body {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 32px 22px;
+  }
+
+  .visual {
+    padding: 0 0 28px;
+    border-right: 0;
+    border-bottom: 1px solid var(--border-muted);
+  }
+}

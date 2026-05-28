@@ -1,0 +1,111 @@
+.panel {
+  border: 1px solid var(--border-muted);
+  border-radius: 8px;
+  background: var(--bg-surface);
+  padding: clamp(20px, 4vw, 34px);
+}
+
+.detailTop,
+.cardFooter,
+.rowActions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 0 10px;
+  border: 1px solid var(--border-muted);
+  border-radius: 999px;
+  background: var(--bg);
+  color: var(--text-heading);
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: capitalize;
+}
+
+.muted {
+  color: var(--text-soft);
+}
+
+.detailTitle {
+  margin-top: 14px;
+  color: var(--text-heading);
+  font-size: clamp(34px, 6vw, 62px);
+  font-weight: 900;
+  line-height: 0.98;
+}
+
+.detailDescription {
+  max-width: 780px;
+  margin-top: 18px;
+  color: var(--text);
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.swapBox {
+  margin-top: 22px;
+  padding: 18px;
+  border-left: 4px solid var(--text-heading);
+  background: var(--bg);
+  color: var(--text-heading);
+  line-height: 1.5;
+}
+
+.cardFooter {
+  margin-top: 28px;
+  color: var(--text-soft);
+}
+
+.rowActions {
+  justify-content: flex-start;
+  margin-top: 26px;
+}
+
+.primaryButton,
+.secondaryButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.primaryButton {
+  border: 1px solid var(--text-heading);
+  background: var(--text-heading);
+  color: white;
+}
+
+.secondaryButton {
+  border: 1px solid var(--border);
+  background: var(--bg-surface);
+  color: var(--text-heading);
+}
+
+.empty,
+.error {
+  border-radius: 8px;
+  padding: 24px;
+  background: var(--bg-surface);
+  line-height: 1.5;
+}
+
+.empty {
+  border: 1px dashed var(--border-muted);
+  text-align: center;
+}
+
+.error {
+  border: 1px solid rgba(160, 42, 42, 0.25);
+  color: #8a2424;
+}

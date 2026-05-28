@@ -1,36 +1,31 @@
-import { createContext, useContext, useState, useEffect, use } from "react";
+import { useState } from "react";
+import { AuthContext } from "./authContext";
 import { tokenService } from "../services/tokenServices";
 import apiClient from "../services/apiClient";
 
-const AuthContext = createContext(null);
-
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const accessToken = tokenService.getAccessToken();
-    if (accessToken) {
-      setUser({ loggedIn: true });
-    }
-    setLoading(false);
-  }, []);
+  const [user, setUser] = useState(() =>
+    tokenService.getAccessToken() ? { loggedIn: true } : null,
+  );
 
   const login = async (credentials) => {
     try {
-      const response = await apiClient.post("/api/v1/authorize", credentials);
+      const response = await apiClient.post(
+        "/api/v1/users/authenticate/",
+        credentials,
+      );
 
-      const { accessToken, refreshToken, user: userData } = response.data;
+      const { access, refresh, user: userData } = response.data;
 
-      tokenService.setTokens(accessToken, refreshToken);
+      tokenService.setTokens(access, refresh);
 
-      setUser(userData || { loggedIn: true });
+      setUser(userData || { loggedIn: true, phoneNumber: credentials.phone_number });
       return { success: true };
     } catch (error) {
       console.error("Login failed: ", error);
       return {
-        succes: false,
-        error: error.response?.data?.message || "Invalid credentials",
+        success: false,
+        error: error.response?.data?.detail || "Invalid credentials",
       };
     }
   };
@@ -42,16 +37,9 @@ export const AuthProvider = ({ children }) => {
 
   const value = {
     user,
-    loading,
     login,
     logout,
   };
 
-  return (
-    <AuthContext.Provider value={value}>
-      {!loading && children}
-    </AuthContext.Provider>
-  );
+  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
-
-export const useAuth = () => useContext(AuthContext);

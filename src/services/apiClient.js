@@ -1,7 +1,7 @@
 import axios from "axios";
 import { tokenService } from "./tokenServices";
 
-const baseURL = import.meta.VITE_API_URL;
+const baseURL = import.meta.env.VITE_API_URL || "http://localhost:8000";
 
 const apiClient = axios.create({ baseURL: baseURL });
 
@@ -29,16 +29,16 @@ apiClient.interceptors.response.use(
       try {
         const refreshToken = tokenService.getRefreshToken();
 
-        const response = await axios.post(`${baseURL}/api/v1/refresh/`, {
-          refreshToken: refreshToken,
+        const response = await axios.post(`${baseURL}/api/v1/users/refresh/`, {
+          refresh: refreshToken,
         });
 
-        const { accessToken, newRefreshToken } = response.data;
+        const { access, refresh } = response.data;
 
-        tokenService.setTokens(accessToken, newRefreshToken || refreshToken);
-        originRequest.headers.Authorization = `Bearer ${accessToken}`;
+        tokenService.setTokens(access, refresh || refreshToken);
+        originRequest.headers.Authorization = `Bearer ${access}`;
         return apiClient(originRequest);
-      } catch (refreshToken) {
+      } catch (refreshError) {
         tokenService.clearTokens();
         window.location.href = "/login";
         return Promise.reject(refreshError);

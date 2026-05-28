@@ -1,0 +1,237 @@
+.panel {
+  border: 1px solid var(--border-muted);
+  border-radius: 8px;
+  background: var(--bg-surface);
+  padding: clamp(20px, 4vw, 34px);
+}
+
+.eyebrow {
+  color: var(--text-soft);
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.title {
+  margin-top: 14px;
+  color: var(--text-heading);
+  font-size: clamp(34px, 6vw, 62px);
+  font-weight: 900;
+  line-height: 0.98;
+}
+
+.description {
+  max-width: 780px;
+  margin-top: 18px;
+  color: var(--text);
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.sectionTitle {
+  margin: 30px 0 14px;
+  color: var(--text-heading);
+  font-size: 28px;
+  font-weight: 900;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(260px, 1fr));
+  gap: 22px;
+}
+
+.offerCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 500px;
+  overflow: hidden;
+  padding: 24px 18px 18px;
+  border-radius: 34px;
+  background-position: center;
+  background-size: cover;
+  color: white;
+  box-shadow: 0 28px 58px rgba(31, 31, 31, 0.16);
+}
+
+.offerCard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.04) 0%, rgba(0, 0, 0, 0.1) 38%),
+    linear-gradient(0deg, rgba(28, 31, 18, 0.88) 0%, rgba(28, 31, 18, 0.46) 42%, transparent 78%);
+}
+
+.cardTop,
+.cardFooter,
+.rowActions {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.cardContent {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 14px;
+}
+
+.dots {
+  margin: 0 auto;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 24px;
+  letter-spacing: 2px;
+  line-height: 1;
+}
+
+.status {
+  min-height: 38px;
+  padding: 9px 14px;
+  border-radius: 999px;
+  background: rgba(24, 24, 24, 0.74);
+  color: white;
+  font-size: 13px;
+  font-weight: 850;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 0 14px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.16);
+  color: white;
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: capitalize;
+  backdrop-filter: blur(8px);
+}
+
+.muted {
+  color: var(--text-soft);
+}
+
+.cardTitle {
+  max-width: 92%;
+  color: white;
+  font-size: 26px;
+  font-weight: 850;
+  line-height: 1.08;
+}
+
+.cardDescription {
+  display: -webkit-box;
+  overflow: hidden;
+  color: rgba(255, 255, 255, 0.74);
+  font-size: 16px;
+  line-height: 1.35;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.cardFooter {
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 13px;
+}
+
+.rowActions {
+  justify-content: flex-start;
+  margin-top: 24px;
+}
+
+.reserveButton {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  min-height: 56px;
+  border-radius: 999px;
+  background: white;
+  color: var(--text-heading);
+  font-size: 16px;
+  font-weight: 900;
+}
+
+.reserveButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.72;
+}
+
+.primaryButton,
+.secondaryButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.primaryButton {
+  border: 1px solid var(--text-heading);
+  background: var(--text-heading);
+  color: white;
+}
+
+.secondaryButton {
+  border: 1px solid var(--border);
+  background: var(--bg-surface);
+  color: var(--text-heading);
+}
+
+.primaryButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.58;
+}
+
+.empty,
+.error,
+.notice {
+  border-radius: 8px;
+  padding: 18px;
+  line-height: 1.45;
+}
+
+.empty {
+  border: 1px dashed var(--border-muted);
+  background: var(--bg-surface);
+  padding: 34px;
+  text-align: center;
+}
+
+.error {
+  border: 1px solid rgba(160, 42, 42, 0.25);
+  background: rgba(160, 42, 42, 0.08);
+  color: #8a2424;
+}
+
+.notice {
+  margin-top: 20px;
+  border: 1px solid rgba(48, 109, 72, 0.25);
+  background: rgba(48, 109, 72, 0.08);
+  color: #245b3a;
+}
+
+@media (max-width: 820px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
