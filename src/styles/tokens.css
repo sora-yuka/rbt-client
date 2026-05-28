@@ -1,0 +1,12 @@
+:root {
+  /* Backgrounds */
+  --bg-dark: hsl(0, 0%, 90%);
+  --bg: hsl(0, 0%, 95%);
+  --bg-surface: hsl(0, 0%, 100%);
+
+  /* Text */
+  --text-heading: hsl(0, 0%, 10%);
+  --text: hsl(0, 0%, 30%);
+
+  --border: hsl(0, 0%, 20%);
+}
