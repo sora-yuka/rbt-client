@@ -51,7 +51,7 @@ const Login = () => {
             {error && <p className={styles.error}>{error}</p>}
             <label className={styles.label}>
               <span className={styles.labelText}>
-                Phone number <span className={styles.hint}>?</span>
+                Phone number
               </span>
               <input
                 className={styles.input}
@@ -68,7 +68,7 @@ const Login = () => {
             </label>
             <label className={styles.label}>
               <span className={styles.labelText}>
-                Password <span className={styles.hint}>?</span>
+                Password
               </span>
               <input
                 className={styles.input}

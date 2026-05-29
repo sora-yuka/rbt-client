@@ -50,7 +50,7 @@
 }
 
 .heroMedia {
-  min-height: 330px;
+  max-height: 500px;
   background: var(--bg-dark);
 }
 

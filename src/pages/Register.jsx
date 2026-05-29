@@ -111,7 +111,7 @@ const Register = () => {
           {error && <p className={styles.error}>{error}</p>}
           <label className={styles.label}>
             <span className={styles.labelText}>
-              Author Name <span className={styles.hint}>?</span>
+              Username
             </span>
             <input
               className={styles.input}
@@ -123,7 +123,7 @@ const Register = () => {
           </label>
           <label className={styles.label}>
             <span className={styles.labelText}>
-              Phone number <span className={styles.hint}>?</span>
+              Phone number
             </span>
             <input
               className={styles.input}
@@ -135,7 +135,7 @@ const Register = () => {
           </label>
           <label className={styles.label}>
             <span className={styles.labelText}>
-              Password <span className={styles.hint}>?</span>
+              Password
             </span>
             <input
               className={styles.input}

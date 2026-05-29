@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import apiClient from "../services/apiClient";
-import heroImage from "../assets/hero.png";
+import heroImage from "../assets/exchange.jpg";
 import {
   formatDate,
   getCategoryName,

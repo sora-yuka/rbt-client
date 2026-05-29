@@ -64,7 +64,7 @@
   font-size: 14px;
   font-weight: 700;
   color: var(--text-heading);
-  transition: .2s ease-in-out all;
+  transition: 0.2s ease-in-out all;
 }
 
 .navLink,
@@ -82,6 +82,10 @@
   border: 1px solid var(--text-heading);
   background: var(--text-heading);
   color: white;
+}
+
+.primaryButton:hover {
+  opacity: 0.8;
 }
 
 .main {
