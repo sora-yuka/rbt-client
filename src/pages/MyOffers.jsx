@@ -1,8 +1,7 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import AppShell from "../components/AppShell";
 import apiClient from "../services/apiClient";
-import { ownOffersService } from "../services/ownOffersService";
 import {
   formatDate,
   getCategoryName,
@@ -26,7 +25,7 @@ const MyOffers = () => {
 
     const loadOffers = async () => {
       try {
-        const response = await apiClient.get("/api/v1/offers/");
+        const response = await apiClient.get("/api/v1/offers/me/");
         if (mounted) setOffers(normalizeList(response.data));
       } catch (err) {
         console.error("Own offers load failed:", err);
@@ -42,11 +41,6 @@ const MyOffers = () => {
       mounted = false;
     };
   }, []);
-
-  const ownOffers = useMemo(() => {
-    const ids = ownOffersService.getIds();
-    return offers.filter((offer) => ids.includes(Number(offer.id)));
-  }, [offers]);
 
   const handleBarter = async (offerId) => {
     if (!barterFor) return;
@@ -79,7 +73,7 @@ const MyOffers = () => {
         <p className={styles.description}>
           {barterFor
             ? "Select one of your published offers to barter for the item you opened."
-            : "These are the offers you created in this browser session."}
+            : "These are your personal offers loaded from your account."}
         </p>
         {notice && <p className={styles.notice}>{notice}</p>}
         <div className={styles.rowActions}>
@@ -95,14 +89,17 @@ const MyOffers = () => {
       <h2 className={styles.sectionTitle}>Published by you</h2>
       {error && <p className={styles.error}>{error}</p>}
       {loading && <p className={styles.empty}>Loading offers...</p>}
-      {!loading && !ownOffers.length && (
+
+      {/* Changed ownOffers.length to offers.length */}
+      {!loading && !offers.length && (
         <p className={styles.empty}>
           No own offers yet. Create an offer first, then come back to barter.
         </p>
       )}
 
       <div className={styles.grid}>
-        {ownOffers.map((offer) => (
+        {/* Directly map over offers instead of ownOffers */}
+        {offers.map((offer) => (
           <article
             key={offer.id}
             className={styles.offerCard}
@@ -117,7 +114,6 @@ const MyOffers = () => {
               <p className={styles.cardDescription}>{offer.description}</p>
               <div className={styles.chips}>
                 <span className={styles.pill}>{getCategoryName(offer)}</span>
-                <span className={styles.pill}>{getCategoryName(offer)}</span>
               </div>
               <div className={styles.cardFooter}>
                 <span>{offer.owner}</span>
@@ -130,10 +126,15 @@ const MyOffers = () => {
                     disabled={creatingDealId === offer.id}
                     onClick={() => handleBarter(offer.id)}
                   >
-                    {creatingDealId === offer.id ? "Proposing..." : "Use to barter"}
+                    {creatingDealId === offer.id
+                      ? "Proposing..."
+                      : "Use to barter"}
                   </button>
                 ) : (
-                  <Link className={styles.reserveButton} to={`/offers/${offer.id}`}>
+                  <Link
+                    className={styles.reserveButton}
+                    to={`/offers/${offer.id}`}
+                  >
                     Open
                   </Link>
                 )}
