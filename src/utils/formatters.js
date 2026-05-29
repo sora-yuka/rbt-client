@@ -21,6 +21,8 @@ const categoryImages = {
     "https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=900&q=80",
   other:
     "https://images.unsplash.com/photo-1484101403633-562f891dc89a?auto=format&fit=crop&w=900&q=80",
+  heroImage:
+    "https://i.pinimg.com/1200x/e4/52/3a/e4523aa1410ac14b358a90bab2a488a0.jpg",
 };
 
 export const getOfferImage = (offer) => {

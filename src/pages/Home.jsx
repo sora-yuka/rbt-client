@@ -87,7 +87,7 @@ const Home = () => {
           </div>
         </div>
         <div className={styles.heroMedia}>
-          <img src={heroImage} alt="Items prepared for exchange" />
+          <img src={"https://i.pinimg.com/1200x/e4/52/3a/e4523aa1410ac14b358a90bab2a488a0.jpg"} alt="Items prepared for exchange" />
         </div>
       </section>
 
